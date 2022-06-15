@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FinanzaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +17,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Auth::routes();
-Route::resource('finanzas',App\Http\Controllers\FinanzaController::class);
-
+Route::resource('finanzas',App\Http\Controllers\FinanzaController::class)->middleware("auth");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [FinanzaController::class, 'index'])->name('home');
+}
+);
