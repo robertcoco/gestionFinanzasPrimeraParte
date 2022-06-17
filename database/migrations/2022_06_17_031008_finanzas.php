@@ -14,14 +14,14 @@ class Finanzas extends Migration
     public function up()
     {
         Schema::create('finanzas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('year');
-            $table->string('month');
-            $table->date('cutDate');
-            $table->integer('BalanceInicial');
-            $table->integer('totalIngresos');
-            $table->integer('totalEgresos');
-            $table->integer('BalanceCorte');
+            $table->bigIncrements("id");
+            $table->integer("year");
+            $table->string("month");
+            $table->date("cutDate");
+            $table->integer("BalanceInicial");
+            $table->integer("totalIngresos");
+            $table->integer("totalEgresos");
+            $table->integer("BalanceCorte");
             $table->timestamps();
         });
     }
