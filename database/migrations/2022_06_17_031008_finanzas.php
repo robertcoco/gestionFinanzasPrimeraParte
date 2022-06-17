@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Finanza extends Migration
+class Finanzas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Finanza extends Migration
      */
     public function up()
     {
-        Schema::create('finanza', function (Blueprint $table) {
+        Schema::create('finanzas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('year');
             $table->string('month');
@@ -33,6 +33,6 @@ class Finanza extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('finanza');
+        //
     }
 }
